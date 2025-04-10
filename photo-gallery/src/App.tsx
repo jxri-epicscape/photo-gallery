@@ -9,24 +9,24 @@ interface GalleryImage {
 
 const images: GalleryImage[] = [
   {
-    url: "https://images.unsplash.com/photo-1682687220742-aba19b51f9a8",
-    title: "Mountain Lake",
-    description: "Serene mountain lake reflecting snow-capped peaks"
+    url: "/images/logo_nobg.png",
+    title: "Kuva 1",
+    description: "Ensimmäinen kuva kuvakansiosta"
   },
   {
-    url: "https://images.unsplash.com/photo-1682687221038-404670d5f7fe",
-    title: "Coastal Sunset",
-    description: "Golden hour at a dramatic coastal landscape"
+    url: "/images/logo+järvi.png",
+    title: "Kuva 2",
+    description: "Toinen kuva kuvakansiosta"
   },
   {
-    url: "https://images.unsplash.com/photo-1682687220199-d0124f48f95b",
-    title: "Forest Path",
-    description: "Misty morning in an ancient forest"
+    url: "/images/logo+laatikot.png",
+    title: "Kuva 3",
+    description: "Kolmas kuva kuvakansiosta"
   },
   {
-    url: "https://images.unsplash.com/photo-1682687220067-dced0a5fdc9a",
-    title: "Desert Dunes",
-    description: "Rolling sand dunes at sunrise"
+    url: "/images/logo+web.png",
+    title: "Kuva 4",
+    description: "Neljäs kuva kuvakansiosta"
   }
 ];
 
