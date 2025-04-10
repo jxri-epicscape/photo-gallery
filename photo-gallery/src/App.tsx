@@ -1,0 +1,105 @@
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight, Camera } from 'lucide-react';
+
+interface GalleryImage {
+  url: string;
+  title: string;
+  description: string;
+}
+
+const images: GalleryImage[] = [
+  {
+    url: "https://images.unsplash.com/photo-1682687220742-aba19b51f9a8",
+    title: "Mountain Lake",
+    description: "Serene mountain lake reflecting snow-capped peaks"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1682687221038-404670d5f7fe",
+    title: "Coastal Sunset",
+    description: "Golden hour at a dramatic coastal landscape"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1682687220199-d0124f48f95b",
+    title: "Forest Path",
+    description: "Misty morning in an ancient forest"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1682687220067-dced0a5fdc9a",
+    title: "Desert Dunes",
+    description: "Rolling sand dunes at sunrise"
+  }
+];
+
+function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+      <div className="max-w-xl w-full">
+        <div className="text-center mb-8">
+          <Camera className="h-8 w-8 text-indigo-400 mx-auto mb-3" />
+          <h1 className="text-2xl font-bold text-white">Photo Gallery</h1>
+        </div>
+        
+        <div className="relative aspect-square bg-black rounded-xl overflow-hidden">
+          {/* Main Image */}
+          <img
+            src={images[currentIndex].url}
+            alt={images[currentIndex].title}
+            className="w-full h-full object-cover"
+          />
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Caption */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+            <h3 className="text-white font-medium">
+              {images[currentIndex].title}
+            </h3>
+            <p className="text-gray-200 text-sm">
+              {images[currentIndex].description}
+            </p>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="absolute top-4 left-0 right-0 flex justify-center gap-1">
+            {images.map((_, index) => (
+              <div
+                key={index}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? 'w-4 bg-white' : 'w-1.5 bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
