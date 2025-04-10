@@ -9,7 +9,7 @@ interface GalleryImage {
 
 const images: GalleryImage[] = [
   {
-    url: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+    url: "https://imgur.com/b9kq8CO",
     title: "Kuva 1",
     description: "Ensimmäinen kuva kuvakansiosta"
   },
